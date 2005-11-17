@@ -1,4 +1,4 @@
-# $Id$
+# $Id: Build.PL 5 2005-11-17 06:34:38Z daisuke $
 #
 # Copyright (c) 2005 Daisuke Maki <dmaki@cpan.org>
 # All rights reserved.
@@ -114,11 +114,12 @@ EOM
 my $class = Module::Build->subclass(code => $code);
 
 my $build = $class->new(
-    dist_name => 'Class-DBI-Plugin-DateTime',
-    dist_version => '0.01',
-    dist_author  => 'Daisuke Maki <dmaki@cpan.org>',
-    license => 'perl',
-    requires => \%requires,
+    dist_name     => 'Class-DBI-Plugin-DateTime',
+    dist_version  => '0.02',
+    dist_author   => 'Daisuke Maki <dmaki@cpan.org>',
+    dist_abstract => 'Use DateTime Objects As Your Class::DBI Columns',
+    license       => 'perl',
+    requires      => \%requires,
     create_makefile_pl => 'traditional',
 );
 

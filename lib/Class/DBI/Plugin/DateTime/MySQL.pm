@@ -1,4 +1,4 @@
-# $Id$
+# $Id: MySQL.pm 4 2005-11-17 06:33:36Z daisuke $
 #
 # Copyright (c) 2005 Daisuke Maki <dmaki@cpan.org>
 # All rights reserved.
@@ -48,13 +48,13 @@ __END__
 
 =head1 NAME
 
-Class::DBI::Plugin::DateTime::Pg - Use DateTime With PostgreSQL
+Class::DBI::Plugin::DateTime::MySQL - Use DateTime With MySQL
 
 =head1 SYNOPSIS
 
   package MyCDBI;
   use base qw(Class::DBI);
-  use Class::DBI::Plugin::DateTime::Pg;
+  use Class::DBI::Plugin::DateTime::MySQL;
 
   __PACKAGE__->set_db(...);
   __PACKAGE__->table(...);
@@ -77,7 +77,7 @@ objects in a Class::DBI + MySQL environment.
 
 =head1 SEE ALSO
 
-L<DateTime|DateTime> L<DateTime::Format::Pg|DateTime::Format::Pg> L<Class::DBI>
+L<DateTime|DateTime> L<DateTime::Format::MySQL|DateTime::Format::MySQL> L<Class::DBI>
 
 =head1 AUTHOR
 

@@ -1,4 +1,4 @@
-# $Id$
+# $Id: Base.pm 4 2005-11-17 06:33:36Z daisuke $
 #
 # Copyright (c) 2005 Daisuke Maki <dmaki@cpan.org>
 # All rights reserved.

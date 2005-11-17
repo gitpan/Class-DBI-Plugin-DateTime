@@ -1,9 +1,9 @@
 ---
 name: Class-DBI-Plugin-DateTime
-version: 0.01
+version: 0.02
 author:
   - Daisuke Maki <dmaki@cpan.org>
-abstract: ~
+abstract: Use DateTime Objects As Your Class::DBI Columns
 license: perl
 requires:
   Class::DBI: 0

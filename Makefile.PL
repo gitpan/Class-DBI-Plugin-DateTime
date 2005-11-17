@@ -5,7 +5,7 @@ WriteMakefile
           'PL_FILES' => {},
           'INSTALLDIRS' => 'site',
           'DISTNAME' => 'Class-DBI-Plugin-DateTime',
-          'VERSION' => '0.01',
+          'VERSION' => '0.02',
           'PREREQ_PM' => {
                            'DateTime::Format::MySQL' => 0,
                            'DBD::mysql' => 0,
