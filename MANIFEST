@@ -1,0 +1,14 @@
+Build.PL
+Changes
+lib/Class/DBI/Plugin/DateTime/Base.pm
+lib/Class/DBI/Plugin/DateTime/MySQL.pm
+lib/Class/DBI/Plugin/DateTime/Pg.pm
+MANIFEST			This list of files
+README
+t/01-sanity.t
+t/02-pg-basic.t
+t/03-mysql-basic.t
+t/99-pod-coverage.t
+t/99-pod.t
+META.yml
+Makefile.PL

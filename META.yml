@@ -1,0 +1,22 @@
+---
+name: Class-DBI-Plugin-DateTime
+version: 0.01
+author:
+  - Daisuke Maki <dmaki@cpan.org>
+abstract: ~
+license: perl
+requires:
+  Class::DBI: 0
+  Class::DBI::LazyInflate: 0
+  DBD::Pg: 0
+  DBD::mysql: 0
+  DateTime::Format::MySQL: 0
+  DateTime::Format::Pg: 0
+provides:
+  Class::DBI::Plugin::DateTime::Base:
+    file: lib/Class/DBI/Plugin/DateTime/Base.pm
+  Class::DBI::Plugin::DateTime::MySQL:
+    file: lib/Class/DBI/Plugin/DateTime/MySQL.pm
+  Class::DBI::Plugin::DateTime::Pg:
+    file: lib/Class/DBI/Plugin/DateTime/Pg.pm
+generated_by: Module::Build version 0.2611
