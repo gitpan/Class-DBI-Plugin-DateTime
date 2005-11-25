@@ -2,17 +2,18 @@
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
-          'PL_FILES' => {},
-          'INSTALLDIRS' => 'site',
           'DISTNAME' => 'Class-DBI-Plugin-DateTime',
-          'VERSION' => '0.02',
+          'VERSION_FROM' => 'lib/Class/DBI/Plugin/DateTime.pm',
           'PREREQ_PM' => {
-                           'DateTime::Format::MySQL' => 0,
-                           'DBD::mysql' => 0,
-                           'DBD::Pg' => 0,
-                           'Class::DBI::LazyInflate' => 0,
-                           'Class::DBI' => 0,
-                           'DateTime::Format::Pg' => 0
-                         }
+                           'Class::DBI' => '0',
+                           'Class::DBI::LazyInflate' => '0',
+                           'DBD::Pg' => '0',
+                           'DBD::mysql' => '0',
+                           'DateTime::Format::MySQL' => '0',
+                           'DateTime::Format::Pg' => '0',
+                           'Module::Pluggable' => '0'
+                         },
+          'INSTALLDIRS' => 'site',
+          'PL_FILES' => {}
         )
 ;

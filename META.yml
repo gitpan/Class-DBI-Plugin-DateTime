@@ -1,6 +1,6 @@
 ---
 name: Class-DBI-Plugin-DateTime
-version: 0.02
+version: 0.03
 author:
   - Daisuke Maki <dmaki@cpan.org>
 abstract: Use DateTime Objects As Your Class::DBI Columns
@@ -12,7 +12,11 @@ requires:
   DBD::mysql: 0
   DateTime::Format::MySQL: 0
   DateTime::Format::Pg: 0
+  Module::Pluggable: 0
 provides:
+  Class::DBI::Plugin::DateTime:
+    file: lib/Class/DBI/Plugin/DateTime.pm
+    version: 0.03
   Class::DBI::Plugin::DateTime::Base:
     file: lib/Class/DBI/Plugin/DateTime/Base.pm
   Class::DBI::Plugin::DateTime::MySQL:

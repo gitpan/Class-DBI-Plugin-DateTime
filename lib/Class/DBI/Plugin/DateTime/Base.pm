@@ -1,4 +1,4 @@
-# $Id: Base.pm 4 2005-11-17 06:33:36Z daisuke $
+# $Id: Base.pm 6 2005-11-25 00:07:02Z daisuke $
 #
 # Copyright (c) 2005 Daisuke Maki <dmaki@cpan.org>
 # All rights reserved.
@@ -12,15 +12,21 @@ sub import
     my $class = shift;
     $class->SUPER::import(@_);
 
-    my ($caller) = caller();
+    my($caller) = caller();
+    $class->_do_export($caller);
+}
+
+sub _export_methods { return () }
+sub _do_export
+{
+    my $class   = shift;
+    my $caller  = shift;
     my @methods = $class->_export_methods();
     foreach my $method (@methods) {
         no strict 'refs';
         *{"${caller}::${method}"} = *{"${class}::${method}"};
     }
 }
-
-sub _export_methods { return () }
 
 sub _setup_column
 {

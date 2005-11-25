@@ -1,6 +1,10 @@
 Changes
 =======
 
+0.03 25 Nov 2005
+  - Add Class::DBI::Plugin::DateTime to auto-select the implementation class
+  - use Module::Pluggable
+
 0.02 17 Nov 2005
   - No code change
   - Minor fix on MySQL.pm docs

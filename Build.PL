@@ -1,4 +1,4 @@
-# $Id: Build.PL 5 2005-11-17 06:34:38Z daisuke $
+# $Id: Build.PL 7 2005-11-25 00:25:06Z daisuke $
 #
 # Copyright (c) 2005 Daisuke Maki <dmaki@cpan.org>
 # All rights reserved.
@@ -20,6 +20,7 @@ my @exclude_tests;
 my %requires = (
     'Class::DBI' => 0,
     'Class::DBI::LazyInflate' => 0,
+    'Module::Pluggable' => 0
 );
 my %depends = (
     pg    => {
@@ -115,8 +116,8 @@ my $class = Module::Build->subclass(code => $code);
 
 my $build = $class->new(
     dist_name     => 'Class-DBI-Plugin-DateTime',
-    dist_version  => '0.02',
     dist_author   => 'Daisuke Maki <dmaki@cpan.org>',
+    dist_version_from => 'lib/Class/DBI/Plugin/DateTime.pm',
     dist_abstract => 'Use DateTime Objects As Your Class::DBI Columns',
     license       => 'perl',
     requires      => \%requires,
