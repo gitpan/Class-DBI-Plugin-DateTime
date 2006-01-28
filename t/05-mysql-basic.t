@@ -1,4 +1,18 @@
-use Test::More (tests => 11);
+use strict;
+BEGIN
+{
+    my @args;
+    if (grep { ! exists $ENV{$_} }
+        map { "MYSQL_${_}" } qw(DSN USER PASSWORD))
+    {
+        push @args, (skip_all => "Need to define MYSQL_DSN MYSQL_USER MYSQL_PASSWORD");
+    } else {
+        @args = (tests => 11);
+    }
+
+    require Test::More;
+    Test::More->import(@args);
+}
 
 package PluginTest::MySQL;
 use strict;
@@ -6,7 +20,7 @@ use base qw(Class::DBI);
 use Class::DBI::Plugin::DateTime::MySQL;
 
 my $table    = "cdbi_plugin_dt_mysql";
-my $dsn      = $ENV{MYSQL_DSN};
+my $dsn      = 'dbi:mysql:' . $ENV{MYSQL_DSN};
 my $user     = $ENV{MYSQL_USER};
 my $password = $ENV{MYSQL_PASSWORD};
 

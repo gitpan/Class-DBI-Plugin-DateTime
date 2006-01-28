@@ -1,4 +1,4 @@
-# $Id: Build.PL 7 2005-11-25 00:25:06Z daisuke $
+# $Id: Build.PL 9 2006-01-28 04:54:17Z daisuke $
 #
 # Copyright (c) 2005 Daisuke Maki <dmaki@cpan.org>
 # All rights reserved.
@@ -52,20 +52,6 @@ while (my($type, $data) = each %depends) {
         my $deps = $data->{requires};
         while (my($module, $version) = each %$deps) {
             $requires{$module} = $version;
-        }
-
-        my $env = $data->{env};
-        for my $idx (0 .. (scalar(@{$env}) / 2) - 1) {
-            my $key = $env->[2 * $idx];
-            my $q   = $env->[2 * $idx + 1];
-
-            my $value = Module::Build->prompt($q);
-            if (!$value && $key =~ /_DSN$/) {
-                $skip = 1;
-                goto DONE;
-            }
-
-            $dsn{$key} = $value if $value;
         }
     }
 

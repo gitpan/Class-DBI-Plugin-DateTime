@@ -1,4 +1,4 @@
-# $Id: DateTime.pm 7 2005-11-25 00:25:06Z daisuke $
+# $Id: DateTime.pm 9 2006-01-28 04:54:17Z daisuke $
 #
 # Copyright (c) 2005 Daisuke Maki <dmaki@cpan.org>
 # All rights reserved.
@@ -13,15 +13,18 @@ use Module::Pluggable
 ;
 use vars qw($VERSION);
 BEGIN {
-    $VERSION = '0.03';
+    $VERSION = '0.04';
 }
 
 sub import
 {
     my $class = shift;
+    my $type  = shift;
 
     my ($caller) = caller();
-    my $type  = $caller->db_Main->{Driver}{Name};
+    if (!$type) {
+        $type  = $caller->db_Main->{Driver}{Name};
+    }
     my $impl  = $class->_select_impl($type);
 
     $impl->_do_export($caller);

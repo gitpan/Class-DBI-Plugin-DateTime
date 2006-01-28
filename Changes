@@ -1,6 +1,11 @@
 Changes
 =======
 
+0.04 28 Jan 2006
+  - Allow explicit specification of implementation to use via
+    Class::DBI::Plugin::DateTime qw(Pg);
+  - Pg implementation of has_interval() has_duration() wasn't working. Fixed.
+
 0.03 25 Nov 2005
   - Add Class::DBI::Plugin::DateTime to auto-select the implementation class
   - use Module::Pluggable

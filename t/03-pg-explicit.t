@@ -17,7 +17,7 @@ BEGIN
 package PluginTest::Pg;
 use strict;
 use base qw(Class::DBI);
-use Class::DBI::Plugin::DateTime::Pg;
+use Class::DBI::Plugin::DateTime 'Pg';
 
 my $table    = "cdbi_plugin_dt_pg";
 my $dsn      = 'dbi:Pg:' . $ENV{POSTGRES_DSN};

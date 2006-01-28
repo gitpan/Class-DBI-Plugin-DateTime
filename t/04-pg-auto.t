@@ -1,4 +1,18 @@
-use Test::More (tests => 11);
+use strict;
+BEGIN
+{
+    my @args;
+    if (grep { ! exists $ENV{$_} }
+        map { "POSTGRES_${_}" } qw(DSN USER PASSWORD))
+    {
+        push @args, (skip_all => "Need to define POSTGRES_DSN POSTGRES_USER POSTGRES_PASSWORD");
+    } else {
+        @args = (tests => 11);
+    }
+
+    require Test::More;
+    Test::More->import(@args);
+}
 
 package PluginTest::Pg;
 use strict;
@@ -8,7 +22,7 @@ my $table;
 BEGIN
 {
     $table       = "cdbi_plugin_dt_pg";
-    my $dsn      = $ENV{POSTGRES_DSN};
+    my $dsn      = 'dbi:Pg:' . $ENV{POSTGRES_DSN};
     my $user     = $ENV{POSTGRES_USER};
     my $password = $ENV{POSTGRES_PASSWORD};
 

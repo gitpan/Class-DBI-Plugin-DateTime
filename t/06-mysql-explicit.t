@@ -1,33 +1,42 @@
-use Test::More (tests => 11);
+use strict;
+BEGIN
+{
+    my @args;
+    if (grep { ! exists $ENV{$_} }
+        map { "MYSQL_${_}" } qw(DSN USER PASSWORD))
+    {
+        push @args, (skip_all => "Need to define MYSQL_DSN MYSQL_USER MYSQL_PASSWORD");
+    } else {
+        @args = (tests => 11);
+    }
+
+    require Test::More;
+    Test::More->import(@args);
+}
 
 package PluginTest::MySQL;
 use strict;
 use base qw(Class::DBI);
-my $table;
+use Class::DBI::Plugin::DateTime 'MySQL';
 
-BEGIN
-{
-    $table       = "cdbi_plugin_dt_mysql";
-    my $dsn      = $ENV{MYSQL_DSN};
-    my $user     = $ENV{MYSQL_USER};
-    my $password = $ENV{MYSQL_PASSWORD};
-    
-    PluginTest::MySQL->set_db(Main => ($dsn, $user, $password));
-    eval { PluginTest::MySQL->db_Main->do("DROP TABLE $table") };
-    PluginTest::MySQL->db_Main->do(qq{
-        CREATE TABLE $table (
-            id INTEGER,
-            a_datetime  DATETIME,
-            a_date      DATE,
-            a_timestamp TIMESTAMP,
-            PRIMARY KEY(id)
-        )
-    });
+my $table    = "cdbi_plugin_dt_mysql";
+my $dsn      = 'dbi:mysql:' . $ENV{MYSQL_DSN};
+my $user     = $ENV{MYSQL_USER};
+my $password = $ENV{MYSQL_PASSWORD};
 
-    PluginTest::MySQL->table($table);
-    PluginTest::MySQL->columns(All => qw(id a_timestamp a_date a_datetime));
-}
-use Class::DBI::Plugin::DateTime;
+PluginTest::MySQL->set_db(Main => ($dsn, $user, $password));
+PluginTest::MySQL->db_Main->do(qq{
+    CREATE TABLE $table (
+        id INTEGER,
+        a_datetime  DATETIME,
+        a_date      DATE,
+        a_timestamp TIMESTAMP,
+        PRIMARY KEY(id)
+    )
+});
+
+PluginTest::MySQL->table($table);
+PluginTest::MySQL->columns(All => qw(id a_timestamp a_date a_datetime));
 PluginTest::MySQL->has_timestamp('a_timestamp');
 PluginTest::MySQL->has_datetime('a_datetime');
 PluginTest::MySQL->has_date('a_date');

@@ -1,4 +1,4 @@
-# $Id: Pg.pm 4 2005-11-17 06:33:36Z daisuke $
+# $Id: Pg.pm 9 2006-01-28 04:54:17Z daisuke $
 #
 # Copyright (c) 2005 Daisuke Maki <dmaki@cpan.org>
 # All rights reserved.
@@ -13,7 +13,9 @@ BEGIN
     # Look ma, I can auto-generate all these :)
     my @types = qw(datetime timestamp timestamptz time timetz date duration);
     foreach my $type (@types) {
-        eval sprintf(<<'        EOM', ($type) x 3);
+        my @args = ($type) x 3;
+        push @args, $type eq 'duration' ? ", 'DateTime::Duration'" : '';
+        eval sprintf(<<'        EOM', @args);
             sub has_%s
             {
                 my $class  = shift;
@@ -26,7 +28,7 @@ BEGIN
                 my $fmt     = DateTime::Format::Pg->new(@args);
                 my $inflate = sub { $fmt->parse_%s(shift) };
                 my $deflate = sub { $fmt->format_%s(shift) };
-                __PACKAGE__->_setup_column($class, $column, $inflate, $deflate);
+                __PACKAGE__->_setup_column($class, $column, $inflate, $deflate%s);
             }
         EOM
     }

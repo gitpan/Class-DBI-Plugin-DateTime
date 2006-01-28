@@ -1,4 +1,4 @@
-# $Id: Base.pm 6 2005-11-25 00:07:02Z daisuke $
+# $Id: Base.pm 9 2006-01-28 04:54:17Z daisuke $
 #
 # Copyright (c) 2005 Daisuke Maki <dmaki@cpan.org>
 # All rights reserved.
@@ -35,6 +35,7 @@ sub _setup_column
     my $column  = shift;
     my $inflate = shift;
     my $deflate = shift;
+    my $coltype = shift || 'DateTime';
 
     if (! $target->can('has_lazy')) {
         eval <<"        EOM";
@@ -45,7 +46,7 @@ sub _setup_column
     }
 
     $target->has_lazy(
-        $column => 'DateTime',
+        $column => $coltype,
         inflate => $inflate,
         deflate => $deflate,
     );
