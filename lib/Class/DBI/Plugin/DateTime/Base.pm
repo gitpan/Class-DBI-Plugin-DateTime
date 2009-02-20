@@ -1,4 +1,4 @@
-# $Id: Base.pm 9 2006-01-28 04:54:17Z daisuke $
+# $Id: /mirror/coderepos/lang/perl/Class-DBI-Plugin-DateTime/trunk/lib/Class/DBI/Plugin/DateTime/Base.pm 101061 2009-02-20T09:44:03.572989Z daisuke  $
 #
 # Copyright (c) 2005 Daisuke Maki <dmaki@cpan.org>
 # All rights reserved.

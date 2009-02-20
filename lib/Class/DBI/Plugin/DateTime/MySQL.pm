@@ -1,4 +1,4 @@
-# $Id: MySQL.pm 4 2005-11-17 06:33:36Z daisuke $
+# $Id: /mirror/coderepos/lang/perl/Class-DBI-Plugin-DateTime/trunk/lib/Class/DBI/Plugin/DateTime/MySQL.pm 101061 2009-02-20T09:44:03.572989Z daisuke  $
 #
 # Copyright (c) 2005 Daisuke Maki <dmaki@cpan.org>
 # All rights reserved.

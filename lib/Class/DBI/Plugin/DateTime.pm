@@ -1,4 +1,4 @@
-# $Id: DateTime.pm 9 2006-01-28 04:54:17Z daisuke $
+# $Id: /mirror/coderepos/lang/perl/Class-DBI-Plugin-DateTime/trunk/lib/Class/DBI/Plugin/DateTime.pm 101066 2009-02-20T10:00:21.423111Z daisuke  $
 #
 # Copyright (c) 2005 Daisuke Maki <dmaki@cpan.org>
 # All rights reserved.
@@ -13,7 +13,7 @@ use Module::Pluggable
 ;
 use vars qw($VERSION);
 BEGIN {
-    $VERSION = '0.04';
+    $VERSION = '0.05';
 }
 
 sub import

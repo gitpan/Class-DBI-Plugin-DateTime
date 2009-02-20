@@ -1,6 +1,10 @@
 Changes
 =======
 
+0.05 20 Feb 2009
+  - Fix Makefile.PL so that neither MySQL nor PostgreSQL specific
+    modules are required. 
+
 0.04 28 Jan 2006
   - Allow explicit specification of implementation to use via
     Class::DBI::Plugin::DateTime qw(Pg);
